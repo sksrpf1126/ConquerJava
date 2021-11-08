@@ -15,7 +15,7 @@ import java.util.Scanner;
  * 자바의 값 넘기는 방식 : https://github.com/gyoogle/tech-interview-for-developer/blob/master/Language/%5Bjava%5D%20Call%20by%20value%EC%99%80%20Call%20by%20reference.md
  */
 
-public class callByValue {
+public class CallByValue {
 	
 	public static void callByValueTestCode() {
 		System.out.println("===callByValueTestCode start===");
@@ -38,10 +38,10 @@ public class callByValue {
 		System.out.println("===callByValueTestCode end===");
 		/**
 		 * C/C++의 경우 변수마다 새로운 메모리 공간이 할당이 되고, 새로운 값을 대입할 때에 메모리 공간은 그대로에서 값만 덮어씌운다.
-		 * 하지만 JAVA의 경우 위처럼 해당 값을 가지고 있는 공간이 있는지 찾고, 존재한다면 그 메모리 공간의 주소값을 저장하여 사용한다.
+		 * 하지만 JAVA의 경우 위처럼 해당 값을 가지고 있는 공간이 있는지 찾고, 존재한다면 그 메모리 공간의 주소값을 복사 후 저장하여 사용한다.
 		 * 위에 a를 11로 변경하였을 때 a에서 새로운 값에 의하여 새로운 메모리 공간을 할당해 준듯하다.
 		 * c를 11로 변경하였을 때, 11의 값을 가지고 있는 메모리 공간이 이미 있으므로 그 공간의 주소값을 저장
-		 * 그렇다면, a,b,c,d 의 값이 10일 때, 하나의 메모리 공간의 주소값을 저장하여 사용할 뿐인것인가 그 공간은 그럼 stack에 존재하는 것인가..?
+		 * 그렇다면, a,b,c,d 의 값이 10일 때, 하나의 메모리 공간의 주소값을 복사 후 저장하여 사용할 뿐인것인가 그 공간은 그럼 stack에 존재하는 것인가..?
 		 */
 	}
 	
@@ -59,6 +59,8 @@ public class callByValue {
 	}
 	
 	//출처 : https://hyeran-story.tistory.com/123
+	//보충설명 : https://madplay.github.io/post/java-string-literal-vs-string-object
+	// StringConstantPool은 자바7 이후에 heap영역으로 이동(위 보충설명에 기재되어 있음)
 	public static void StringConstantPoolTestCode() {
 		System.out.println("===StringConstantPoolTestCode start===");
 		Scanner sc = new Scanner(System.in);
